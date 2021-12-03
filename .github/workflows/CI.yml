@@ -1,4 +1,9 @@
 name: CI
+on:
+  push:
+    branches:
+      - ci
+      - master
 jobs:
   build:
     runs-on: ubuntu-latest
