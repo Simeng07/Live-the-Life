@@ -1,8 +1,4 @@
 name: CI
-on:
-  push:
-    branches:
-      - master
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -30,4 +26,5 @@ jobs:
           git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add .
           git commit -m  "Update Source Code"
-          git push --force --quiet master:gh-pages
+          git_url = "$(git config --get remote.origin.url)"
+          git push --force --quiet $git_url ${GITHUB_REF##*/}:gh-pages
