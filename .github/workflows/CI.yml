@@ -32,4 +32,4 @@ jobs:
           git add .
           git commit -m  "Update Source Code"
           echo "git_url=$(git config --get remote.origin.url)" >> $GITHUB_ENV
-          git push --force --quiet $git_url ${GITHUB_REF##*/}:gh-pages
+          git push --force --quiet ${{ env.git_url }} ${GITHUB_REF##*/}:gh-pages
