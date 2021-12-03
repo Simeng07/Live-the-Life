@@ -25,11 +25,11 @@ jobs:
           hexo generate
       - name: Git push
         run: |
-          git_url="https://github.com/${{ github.repository }}.git"
           cd ./public
           git init
           git config --global user.name "github-actions"
           git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add .
           git commit -m  "Update Source Code"
-          git push --force --quiet $git_url HEAD:gh-pages
+          git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/$GITHUB_REPOSITORY
+          git push --force --quiet origin HEAD:gh-pages
