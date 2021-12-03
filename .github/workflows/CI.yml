@@ -25,7 +25,7 @@ jobs:
           hexo generate
       - name: Git push
         run: |
-          git_url="https://${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository}}"
+          git_url="https://${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}"
           cd ./public
           git init
           git config --global user.name "github-actions"
