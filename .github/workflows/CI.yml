@@ -12,10 +12,10 @@ jobs:
         uses: actions/checkout@v1
         with:
           ref: master
-      - name: Use Node.js ${{ matrix.node_version }}
-        uses: actions/setup-node@v1
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
         with:
-          version: ${{ matrix.node_version }}
+          node-version: 'latest'
       - name: Setup hexo
         run: |
           npm install hexo-cli -g
